@@ -4,8 +4,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'AI Research Portfolio',
-  description: 'AI research, publications, projects, and blog.',
+  title: 'Ahmed Yasser — AI Research Portfolio',
+  description: 'AI research, publications, projects, and blog by Ahmed Yasser.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

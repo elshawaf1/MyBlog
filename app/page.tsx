@@ -12,6 +12,7 @@ export default async function Home() {
   return (
     <>
       <header className="hero">
+        <img className="profile" src={site.photo} alt={site.name} onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
         <h1>{site.name}</h1>
         <p>{site.title} — {site.tagline}</p>
         <div className="btns">
