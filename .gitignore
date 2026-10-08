@@ -1,5 +1,7 @@
 node_modules/
 .next/
 out/
+vault-content/
 *.log
 .DS_Store
+.env*.local

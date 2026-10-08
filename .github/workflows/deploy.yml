@@ -15,6 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # Private vault checkout (optional): builds the public blog from real
+      # published notes when VAULT_TOKEN secret exists; otherwise seed content.
+      - name: Checkout private vault
+        if: ${{ secrets.VAULT_TOKEN != '' }}
+        uses: actions/checkout@v4
+        with:
+          repository: elshawaf1/MyVault
+          token: ${{ secrets.VAULT_TOKEN }}
+          path: vault-content
       - uses: actions/setup-node@v4
         with:
           node-version: 20
