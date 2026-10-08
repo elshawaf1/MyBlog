@@ -14,6 +14,7 @@ export type Post = {
   summary: string;
   published: boolean;
   featured: boolean;
+  mins: number;
   contentHtml?: string;
 };
 
@@ -34,6 +35,7 @@ export async function getPosts(): Promise<Post[]> {
   for (const f of files) {
     const raw = fs.readFileSync(path.join(root, 'content/blog', f), 'utf8');
     const { data, content } = matter(raw);
+    const words = content.split(/\s+/).filter(Boolean).length;
     posts.push({
       slug: f.replace(/\.md$/, ''),
       title: data.title ?? f,
@@ -42,6 +44,7 @@ export async function getPosts(): Promise<Post[]> {
       summary: data.summary ?? '',
       published: data.published !== false,
       featured: data.featured === true,
+      mins: Math.max(1, Math.round(words / 200)),
       contentHtml: await mdToHtml(content),
     });
   }

@@ -1,15 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { useMemo, useState } from 'react';
+import PostRow, { RowPost } from '@/components/PostRow';
 
-export type BlogItem = {
-  slug: string;
-  title: string;
-  date: string;
-  tags: string[];
-  summary: string;
-};
+export type BlogItem = RowPost;
 
 export default function BlogSearch({ posts }: { posts: BlogItem[] }) {
   const [q, setQ] = useState('');
@@ -29,7 +23,7 @@ export default function BlogSearch({ posts }: { posts: BlogItem[] }) {
       <div className="filter-bar">
         <input
           type="search"
-          placeholder="Search articles…"
+          placeholder="Search stories…"
           value={q}
           onChange={(e) => setQ(e.target.value)}
           aria-label="Search articles"
@@ -51,17 +45,11 @@ export default function BlogSearch({ posts }: { posts: BlogItem[] }) {
           ))}
         </div>
       )}
-      <p><small className="muted">{filtered.length} of {posts.length} articles</small></p>
-      <ul className="clean">
-        {filtered.map((p) => (
-          <li key={p.slug}>
-            <Link href={`/blog/${p.slug}`}>{p.title}</Link>
-            <div className="meta">{p.date} · {p.tags.join(', ')}</div>
-            <div><small className="muted">{p.summary}</small></div>
-          </li>
-        ))}
-      </ul>
-      {filtered.length === 0 && <p><small className="muted">No articles match.</small></p>}
+      <p><small className="muted">{filtered.length} of {posts.length} stories</small></p>
+      {filtered.map((p) => (
+        <PostRow key={p.slug} p={p} />
+      ))}
+      {filtered.length === 0 && <p><small className="muted">No stories match.</small></p>}
     </>
   );
 }
