@@ -2,13 +2,12 @@ import Link from 'next/link';
 import { site } from '@/config/site';
 import ProfilePhoto from '@/components/ProfilePhoto';
 import { visibility } from '@/config/visibility';
-import { getPosts, getProjects, getPublications, getNews } from '@/lib/content';
+import { getPosts, getProjects, getPublications } from '@/lib/content';
 
 export default async function Home() {
   const posts = await getPosts();
   const projects = await getProjects();
   const pubs = getPublications();
-  const news = getNews();
 
   return (
     <>
@@ -70,17 +69,6 @@ export default async function Home() {
             ))}
           </ul>
           <small><Link href="/blog">All articles →</Link></small>
-        </>
-      )}
-
-      {visibility.news && news.length > 0 && (
-        <>
-          <h2>News</h2>
-          <ul className="clean">
-            {news.slice(0, 4).map((n, i) => (
-              <li key={i}><span className="meta">{n.date} — </span>{n.text}</li>
-            ))}
-          </ul>
         </>
       )}
     </>

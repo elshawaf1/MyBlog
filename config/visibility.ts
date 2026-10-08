@@ -5,6 +5,6 @@ export const visibility = {
   publications: true,
   projects: true,
   blog: true,
-  news: true,
+  news: false,
   cv: true,
 };
