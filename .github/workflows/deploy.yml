@@ -16,14 +16,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       # Private vault checkout (optional): builds the public blog from real
-      # published notes when VAULT_TOKEN secret exists; otherwise seed content.
-      - name: Checkout private vault
-        if: ${{ secrets.VAULT_TOKEN != '' }}
-        uses: actions/checkout@v4
-        with:
-          repository: elshawaf1/MyVault
-          token: ${{ secrets.VAULT_TOKEN }}
-          path: vault-content
+      # published notes when VAULT_TOKEN secret exists; else seed content.
+      - name: Checkout private vault (optional)
+        env:
+          VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
+        run: |
+          if [ -n "$VAULT_TOKEN" ]; then
+            git clone --depth 1 "https://x-access-token:${VAULT_TOKEN}@github.com/elshawaf1/MyVault.git" vault-content
+            ls vault-content/notes
+          else
+            echo "No VAULT_TOKEN secret — building from content/seed."
+          fi
       - uses: actions/setup-node@v4
         with:
           node-version: 20
