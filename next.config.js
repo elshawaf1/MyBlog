@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  trailingSlash: true,
   images: { unoptimized: true },
   // Project site: https://elshawaf1.github.io/MyBlog/
   basePath: '/MyBlog',
