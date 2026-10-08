@@ -99,12 +99,3 @@ export function getPublications(): Publication[] {
   const arr = JSON.parse(fs.readFileSync(f, 'utf8'));
   return arr.filter((p: Publication) => p.published !== false);
 }
-
-export type NewsItem = { date: string; text: string; published: boolean };
-
-export function getNews(): NewsItem[] {
-  const f = path.join(root, 'content/news.json');
-  if (!fs.existsSync(f)) return [];
-  const arr = JSON.parse(fs.readFileSync(f, 'utf8'));
-  return arr.filter((n: NewsItem) => n.published !== false);
-}

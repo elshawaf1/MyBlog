@@ -1,10 +1,10 @@
-// One place to show / hide whole sections or items.
-// Set any section to false to hide it from nav + home.
-export const visibility = {
-  research: true,
-  publications: true,
-  projects: true,
-  blog: true,
-  news: false,
-  cv: true,
+import visJson from '@/content/visibility.json';
+
+// Whole-section toggles. false hides from nav + home.
+export const visibility = visJson as {
+  research: boolean;
+  publications: boolean;
+  projects: boolean;
+  blog: boolean;
+  cv: boolean;
 };

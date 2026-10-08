@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { site } from '@/config/site';
 import { visibility } from '@/config/visibility';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function Navbar() {
   return (
@@ -11,8 +12,8 @@ export default function Navbar() {
       {visibility.publications && <Link href="/publications">Publications</Link>}
       {visibility.projects && <Link href="/projects">Projects</Link>}
       {visibility.blog && <Link href="/blog">Blog</Link>}
-      {visibility.news && <Link href="/news">News</Link>}
       {visibility.cv && <Link href="/cv">CV</Link>}
+      <ThemeToggle />
     </nav>
   );
 }

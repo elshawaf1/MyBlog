@@ -12,34 +12,43 @@ export default async function Home() {
   return (
     <>
       <header className="hero">
-        <ProfilePhoto src={site.photo} alt={site.name} />
-        <h1>{site.name}</h1>
-        <p>{site.title} — {site.tagline}</p>
+        <div className="hero-grid">
+          <ProfilePhoto src={site.photo} alt={site.name} />
+          <div>
+            <h1>{site.name}</h1>
+            <p>{site.title} — {site.tagline}</p>
+          </div>
+        </div>
+        <p className="hero-bio">{site.bio}</p>
         <div className="btns">
           <a className="btn solid" href={site.cvPath}>Download CV</a>
           <a className="btn" href={site.scholar}>Google Scholar</a>
           <a className="btn" href={site.github}>GitHub</a>
           <a className="btn" href={`mailto:${site.email}`}>Email</a>
         </div>
+        <div className="stats">
+          <span><strong>{pubs.length}</strong> publications</span>
+          <span><strong>{projects.length}</strong> projects</span>
+          <span><strong>{posts.length}</strong> articles</span>
+        </div>
       </header>
 
       <p>
-        I work on applied AI and research. This site collects my publications,
-        projects, articles, and news in one place. See <Link href="/about">About</Link> for
-        full bio.
+        See <Link href="/about">About</Link> for full bio.
       </p>
 
-      {visibility.publications && pubs.length > 0 && (
+      {visibility.blog && posts.length > 0 && (
         <>
-          <h2>Featured Research</h2>
-          {pubs.slice(0, 3).map((p) => (
-            <div className="card" key={p.title}>
-              <h3>{p.title}</h3>
-              <div className="meta">{p.authors} · {p.venue} {p.year}</div>
-              <small><a href={p.link}>Paper</a></small>
-            </div>
-          ))}
-          <small><Link href="/publications">All publications →</Link></small>
+          <h2>Latest Articles</h2>
+          <ul className="clean">
+            {posts.slice(0, 5).map((p) => (
+              <li key={p.slug}>
+                <Link href={`/blog/${p.slug}`}>{p.title}</Link>
+                <div className="meta">{p.date} — {p.summary}</div>
+              </li>
+            ))}
+          </ul>
+          <small><Link href="/blog">All articles + search →</Link></small>
         </>
       )}
 
@@ -57,18 +66,17 @@ export default async function Home() {
         </>
       )}
 
-      {visibility.blog && posts.length > 0 && (
+      {visibility.publications && pubs.length > 0 && (
         <>
-          <h2>Latest Articles</h2>
-          <ul className="clean">
-            {posts.slice(0, 3).map((p) => (
-              <li key={p.slug}>
-                <Link href={`/blog/${p.slug}`}>{p.title}</Link>
-                <div className="meta">{p.date} — {p.summary}</div>
-              </li>
-            ))}
-          </ul>
-          <small><Link href="/blog">All articles →</Link></small>
+          <h2>Featured Research</h2>
+          {pubs.slice(0, 3).map((p) => (
+            <div className="card" key={p.title}>
+              <h3>{p.title}</h3>
+              <div className="meta">{p.authors} · {p.venue} {p.year}</div>
+              <small><a href={p.link}>Paper</a></small>
+            </div>
+          ))}
+          <small><Link href="/publications">All publications →</Link></small>
         </>
       )}
     </>

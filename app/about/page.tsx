@@ -7,10 +7,7 @@ export default function About() {
       <h2>About</h2>
       <ProfilePhoto src={site.photo} alt={site.name} />
       <p><strong>{site.name}</strong> — {site.title}, {site.tagline}.</p>
-      <p>
-        Replace this with your bio: background, current role, research interests,
-        industry contributions. Keep it 3–5 sentences like Stanford faculty pages.
-      </p>
+      <p>{site.bio}</p>
       <h2>Contacts</h2>
       <ul className="clean">
         <li>Email: <a href={`mailto:${site.email}`}>{site.email}</a></li>
@@ -19,7 +16,7 @@ export default function About() {
         <li>LinkedIn: <a href={site.linkedin}>{site.linkedin}</a></li>
       </ul>
       <h2>Edit me</h2>
-      <p><small className="muted">Edit <code>config/site.ts</code> for name/links. Edit this file <code>app/about/page.tsx</code> for bio.</small></p>
+      <p><small className="muted">Edit bio + links in <code>content/site.json</code> (or via <a href="/admin">/admin</a>).</small></p>
     </>
   );
 }

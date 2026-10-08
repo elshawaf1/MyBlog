@@ -1,14 +1,15 @@
 # Minimal AI Portfolio + Blog (Next.js static, GitHub Pages)
 
-Stanford-style: About, Research, Publications, Projects, Blog, News, CV.
+Stanford-style: About, Research, Publications, Projects, Blog, CV. Admin at `/admin`.
 
 ## Edit content
-- `config/site.ts` — name, links, email
-- `config/visibility.ts` — `true/false` to show/hide whole sections
+- `content/site.json` — name, bio, links, email
+- `content/visibility.json` — `true/false` to show/hide whole sections
 - `content/blog/*.md` — `published: false` = draft hidden, `featured: true` = on home
 - `content/projects/*.md` — same flags
-- `content/publications.json`, `content/news.json` — `"published": false` to hide
-- `public/cv.pdf` — replace with your CV
+- `content/publications.json` — `"published": false` to hide
+- `public/cv.pdf` — replace with your CV (shown embedded + download)
+- `public/photo.jpg` — your photo (shown on home + about)
 
 ## Run
 ```bash

@@ -1,13 +1,16 @@
-export const site = {
-  name: 'Ahmed Yasser',
-  title: 'AI Researcher',
-  tagline: 'LLMs · Vision · Applied AI',
-  email: 'you@example.com',
-  github: 'https://github.com/elshawaf1',
-  scholar: 'https://scholar.google.com',
-  linkedin: 'https://linkedin.com/in/yourname',
-  cvPath: '/MyBlog/cv.pdf',
-  photo: '/MyBlog/photo.jpg',
+import siteJson from '@/content/site.json';
+
+export const site = siteJson as {
+  name: string;
+  title: string;
+  tagline: string;
+  bio: string;
+  email: string;
+  github: string;
+  scholar: string;
+  linkedin: string;
+  cvPath: string;
+  photo: string;
 };
 
 export type Site = typeof site;
