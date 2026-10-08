@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { site } from '@/config/site';
 import ProfilePhoto from '@/components/ProfilePhoto';
-import Thumb from '@/components/Thumb';
+import SlugBand from '@/components/SlugBand';
+import Reveal from '@/components/Reveal';
 
 export type RowPost = {
   slug: string;
@@ -12,28 +13,27 @@ export type RowPost = {
   mins: number;
 };
 
-export default function PostRow({ p }: { p: RowPost }) {
+export default function PostRow({ p, index }: { p: RowPost; index: number }) {
   return (
-    <div className="feed-row">
-      <div className="txt">
-        <div className="who-mini">
-          <ProfilePhoto src={site.photo} alt={site.name} />
-          <span>{site.name}</span>
+    <Reveal delay={Math.min(index, 5) * 60}>
+      <Link href={`/blog/${p.slug}`} className="feed-row" style={{ textDecoration: 'none' }}>
+        <div className="txt">
+          <div className="who-mini">
+            <ProfilePhoto src={site.photo} alt={site.name} />
+            <span>{site.name}</span>
+            <span>·</span>
+            <span>{p.date}</span>
+          </div>
+          <h3>{p.title}</h3>
+          <div className="excerpt">{p.summary}</div>
+          <div className="feed-meta">
+            <span>{p.mins} min read</span>
+            {p.tags[0] && <span className="tag-pill">{p.tags[0]}</span>}
+            <span className="feed-arrow">→</span>
+          </div>
         </div>
-        <h3>
-          <Link href={`/blog/${p.slug}`}>{p.title}</Link>
-        </h3>
-        <div className="excerpt">{p.summary}</div>
-        <div className="feed-meta">
-          <span>{p.date}</span>
-          <span>·</span>
-          <span>{p.mins} min read</span>
-          {p.tags[0] && (
-            <span className="tag-pill">{p.tags[0]}</span>
-          )}
-        </div>
-      </div>
-      <Thumb seed={p.slug} letter={p.title.charAt(0) || 'A'} />
-    </div>
+        <SlugBand seed={p.slug} />
+      </Link>
+    </Reveal>
   );
 }

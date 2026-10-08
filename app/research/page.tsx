@@ -1,17 +1,21 @@
+const AREAS = [
+  { code: 'R-01', title: 'Large Language Models', desc: 'What problem, what approach, what result. Link to papers and builds.' },
+  { code: 'R-02', title: 'Vision / Multimodal', desc: 'Replace with your real areas. Keep 2–4 areas max.' },
+];
+
 export default function Research() {
   return (
     <div className="narrow">
-      <div className="kicker" style={{ marginTop: 40 }}>Research</div>
-      <h2 className="sec" style={{ marginTop: 0 }}>Areas I work on</h2>
-      <p className="sec-sub">Problems, approaches, and results — each links to papers and projects.</p>
-      <div className="card">
-        <h3>Area 1 — e.g. Large Language Models</h3>
-        <p><small className="muted">2–3 lines: what problem, what approach, what result. Link to papers/projects.</small></p>
-      </div>
-      <div className="card">
-        <h3>Area 2 — e.g. Vision / Multimodal</h3>
-        <p><small className="muted">Replace with your real areas. Keep 2–4 areas max.</small></p>
-      </div>
+      <div className="kicker" style={{ marginTop: 56 }}>02 / Laboratory</div>
+      <h2 className="sec" style={{ marginTop: 0 }}>Research benches</h2>
+      <p className="sec-sub">Active fronts — each bench feeds papers and builds.</p>
+      {AREAS.map((a) => (
+        <div className="card" key={a.code}>
+          <div className="meta" style={{ color: 'var(--accent)' }}>◈ {a.code}</div>
+          <h3>{a.title}</h3>
+          <p><small className="muted">{a.desc}</small></p>
+        </div>
+      ))}
     </div>
   );
 }

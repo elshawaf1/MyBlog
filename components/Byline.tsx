@@ -6,7 +6,7 @@ export default function Byline({ date, mins, big }: { date: string; mins: number
     <div className="byline">
       <ProfilePhoto src={site.photo} alt={site.name} />
       <div className="who">
-        <b>{site.name}</b>
+        <b>{site.name}</b> <span className="dot" style={{ marginLeft: 6 }} />
         <div className="sub">{date} · {mins} min read</div>
       </div>
       {!big && (

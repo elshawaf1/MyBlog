@@ -7,8 +7,9 @@ export default function CV() {
 
   return (
     <div className="narrow">
-      <div className="kicker" style={{ marginTop: 40 }}>Résumé</div>
-      <h2 className="sec" style={{ marginTop: 0 }}>CV</h2>
+      <div className="kicker" style={{ marginTop: 56 }}>05 / Record</div>
+      <h2 className="sec" style={{ marginTop: 0 }}>Curriculum vitae</h2>
+      <p className="sec-sub">Preview below, or take the file with you.</p>
       <p>
         <a className="btn solid" href={site.cvPath} download>Download CV (PDF)</a>{' '}
         <a className="btn" href={site.cvPath} target="_blank" rel="noopener">Open in new tab</a>

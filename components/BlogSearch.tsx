@@ -46,8 +46,8 @@ export default function BlogSearch({ posts }: { posts: BlogItem[] }) {
         </div>
       )}
       <p><small className="muted">{filtered.length} of {posts.length} stories</small></p>
-      {filtered.map((p) => (
-        <PostRow key={p.slug} p={p} />
+      {filtered.map((p, i) => (
+        <PostRow key={p.slug} p={p} index={i} />
       ))}
       {filtered.length === 0 && <p><small className="muted">No stories match.</small></p>}
     </>
