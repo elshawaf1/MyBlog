@@ -1,10 +1,11 @@
 import { site } from '@/config/site';
+import ProfilePhoto from '@/components/ProfilePhoto';
 
 export default function About() {
   return (
     <>
       <h2>About</h2>
-      <img className="profile" src={site.photo} alt={site.name} style={{ marginBottom: 12 }} />
+      <ProfilePhoto src={site.photo} alt={site.name} />
       <p><strong>{site.name}</strong> — {site.title}, {site.tagline}.</p>
       <p>
         Replace this with your bio: background, current role, research interests,
