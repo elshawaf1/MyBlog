@@ -1,0 +1,24 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Georgia, 'Times New Roman', serif; color: #1a1a1a; background: #fff; line-height: 1.6; }
+a { color: #8c1516; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
+nav { border-bottom: 1px solid #ddd; padding: 14px 20px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; max-width: 760px; margin: 0 auto; }
+nav .brand { font-weight: bold; margin-right: auto; color: #1a1a1a; font-size: 18px; }
+nav a { font-size: 14px; font-family: Arial, sans-serif; }
+header.hero { padding: 48px 0 24px; }
+header.hero h1 { font-size: 36px; line-height: 1.2; margin-bottom: 8px; }
+header.hero p { font-family: Arial, sans-serif; color: #555; font-size: 15px; }
+.btns { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+.btn { font-family: Arial, sans-serif; font-size: 14px; border: 1px solid #8c1516; padding: 8px 14px; border-radius: 6px; }
+.btn.solid { background: #8c1516; color: #fff; }
+h2 { font-size: 22px; margin: 36px 0 12px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+h3 { font-size: 17px; margin: 16px 0 4px; }
+.card { border: 1px solid #e5e5e5; border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+.card small, small.muted { font-family: Arial, sans-serif; color: #777; font-size: 13px; }
+.meta { font-family: Arial, sans-serif; font-size: 13px; color: #777; }
+ul.clean { list-style: none; }
+ul.clean li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+footer { border-top: 1px solid #ddd; margin-top: 48px; padding: 20px; text-align: center; font-family: Arial, sans-serif; font-size: 13px; color: #777; }
+article.post p { margin: 12px 0; }
+article.post pre { background: #f6f6f6; padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 13px; }

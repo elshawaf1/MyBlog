@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Sample Paper on Applied AI",
+    "venue": "arXiv",
+    "year": 2025,
+    "authors": "Your Name et al.",
+    "link": "https://arxiv.org",
+    "pdf": "",
+    "published": true
+  },
+  {
+    "title": "Hidden Paper Example (published=false)",
+    "venue": "Workshop",
+    "year": 2024,
+    "authors": "Your Name",
+    "link": "https://example.com",
+    "pdf": "",
+    "published": false
+  }
+]
